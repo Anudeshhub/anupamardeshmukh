@@ -1,5 +1,5 @@
-<div class="rendered-markdown"><h1>Case Study - Promotion Effectiveness of Coupon Program</h1>
-<h2>Use CRISP-DM model to find out Promotion Effectiveness of promoting coupons</h2>
+<div class="rendered-markdown"><h1>Case Study - Whether Customer Accepts the Coupon</h1>
+<h2>Use CRISP-DM model to find out Effectiveness of promoting coupons</h2>
 <h3>1 Business Understanding</h3>
 <h3>1.1 Background</h3>
 <p>ABC company is providing their truck drivers with coupons as one of the employee incentive programs. They are analyzing the demographics and utility of this program,
@@ -54,7 +54,7 @@
 <p>df = pd.read_csv('data/coupons.csv')</p>
 <h2>Summary of dataframe that shows the structure and components of the dataframe</h2>
 <p>df.info()</p>
-<p><img src="./picture/Picture1.png" alt="image info" />
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture1.png" alt="Picture1">
 <br  />•   The number of rows (each row represent a single customer data)  : 12684
 <br  />•   The number of column :  26
 <br  />•   The name of each column
@@ -63,51 +63,51 @@
 <br  />Data columns (total 26 columns):</p>
 <h1>Column                Non-Null Count  Dtype</h1>
 <hr />
-<p>0   destination           12684 non-null  object
-<br  />1   passanger             12684 non-null  object
-<br  />2   weather               12684 non-null  object
-<br  />3   temperature           12684 non-null  int64
-<br  />4   time                  12684 non-null  object
-<br  />5   coupon                12684 non-null  object
-<br  />6   expiration            12684 non-null  object
-<br  />7   gender                12684 non-null  object
-<br  />8   age                   12684 non-null  object
-<br  />9   maritalStatus         12684 non-null  object
-<br  />10  has_children          12684 non-null  int64
-<br  />11  education             12684 non-null  object
-<br  />12  occupation            12684 non-null  object
-<br  />13  income                12684 non-null  object
-<br  />14  car                   108 non-null    object
-<br  />15  Bar                   12577 non-null  object
-<br  />16  CoffeeHouse           12467 non-null  object
-<br  />17  CarryAway             12533 non-null  object
-<br  />18  RestaurantLessThan20  12554 non-null  object
-<br  />19  Restaurant20To50      12495 non-null  object
-<br  />20  toCoupon_GEQ5min      12684 non-null  int64
-<br  />21  toCoupon_GEQ15min     12684 non-null  int64
-<br  />22  toCoupon_GEQ25min     12684 non-null  int64
-<br  />23  direction_same        12684 non-null  int64
-<br  />24  direction_opp         12684 non-null  int64
-<br  />25  Y                     12684 non-null  int64</p>
+<p>    0        destination           12684      non-null       object
+<br  />1        passanger             12684      non-null       object
+<br  />2        weather               12684      non-null       object
+<br  />3        temperature           12684      non-null       int64
+<br  />4        time                  12684      non-null       object
+<br  />5        coupon                12684      non-null       object
+<br  />6        expiration            12684      non-null       object
+<br  />7        gender                12684      non-null       object
+<br  />8        age                   12684      non-null       object
+<br  />9        maritalStatus         12684      non-null       object
+<br  />10        has_children          12684     non-null       int64
+<br  />11        education             12684     non-null       object
+<br  />12        occupation            12684     non-null       object
+<br  />13        income                12684     non-null       object
+<br  />14        car                   108       non-null       object
+<br  />15        Bar                   12577     non-null       object
+<br  />16        CoffeeHouse           12467     non-null       object
+<br  />17        CarryAway             12533     non-null       object
+<br  />18        RestaurantLessThan20  12554     non-null       object
+<br  />19        Restaurant20To50      12495     non-null       object
+<br  />20        toCoupon_GEQ5min      12684     non-null       int64
+<br  />21        toCoupon_GEQ15min     12684     non-null       int64
+<br  />22        toCoupon_GEQ25min     12684     non-null       int64
+<br  />23        direction_same        12684     non-null       int64
+<br  />24        direction_opp         12684     non-null       int64
+<br  />25        Y                     12684     non-null       int64</p>
 <p>2.2 Data Preparation and Data Cleansing</p>
 <h1>Get unique values from each column</h1>
 <p>unique_values = {col: df[col].unique() for col in df.columns}
 <br  />print(unique_values)</p>
-<p>destination  : 'No Urgent Place', 'Home', 'Work'
-<br  />passanger    : 'Alone', 'Friend(s)', 'Kid(s)', 'Partner'
-<br  />weather      : 'Sunny', 'Rainy', 'Snowy'
-<br  />temperature  : 55, 80, 30
-<br  />time         : '2PM', '10AM', '6PM', '7AM', '10PM'
-<br  />coupon       : 'Restaurant(&lt;20)', 'Coffee House', 'Carry out &amp; Take away',</p>
-<pre><code>           'Bar','Restaurant(20-50)'
+<p>destination       :      'No Urgent Place', 'Home', 'Work'
+<br  />passanger     :      'Alone', 'Friend(s)', 'Kid(s)', 'Partner'
+<br  />weather       :      'Sunny', 'Rainy', 'Snowy'
+<br  />temperature   :       55, 80, 30
+<br  />time          :      '2PM', '10AM', '6PM', '7AM', '10PM'
+<br  />coupon        :      'Restaurant(&lt;20)', 'Coffee House', 'Carry out &amp; Take away',</p>
+<pre><code>                  'Bar','Restaurant(20-50)'
 </code></pre>
-<p>Expiration   : '1d', '2h'
-<br  />Gender       : 'Female', 'Male'
-<br  />Age          : '21', '46', '26', '31', '41', '50plus', '36', 'below21'
-<br  />maritalStatus: 'Unmarried partner', 'Single', 'Married partner',</p>
-<pre><code>           'Divorced', 'Widowed'
+<p>Expiration        :      '1d', '2h'
+<br  />Gender        :      'Female', 'Male'
+<br  />Age           :      '21', '46', '26', '31', '41', '50plus', '36', 'below21'
+<br  />maritalStatus :      'Unmarried partner', 'Single', 'Married partner',</p>
+<pre><code>                 'Divorced', 'Widowed'
 </code></pre>
-<p>has_children : 1, 0
+<p>has_children      :      1, 0
 <br  />…etc</p>
 <h2>2. Investigate the dataset for missing or problematic data</h2>
 <h2>print(null_counts) from dataset</h2>
@@ -131,8 +131,7 @@
 <p>df['CarryAway'].fillna('Never', inplace=True)
 <br  />df['Bar'] = df['Bar'].replace('',0)
 <br  />df</p>
-<p><img src="./picture/Picture1.png" alt="image info" /></p>
-<pre><code>  ## Investigate the dataset for missing or problematic data
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture2.png" alt="Picture2"><pre><code>  ## Investigate the dataset for missing or problematic data
      df[df['CarryAway'].isnull()].coupon.value_counts()
 
      Coffee House             57
@@ -154,8 +153,7 @@ print(sum_dfbar)
 df['CarryAway'].fillna('Never', inplace=True)
 df['Bar'] = df['Bar'].replace('',0)
 </code></pre>
-<p><img src="./picture/Picture3.png" alt="image info" /></p>
-<ol>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture3.png" alt="Picture3"><ol>
 <li>Exploratory data analysis and Visualizations
 <br  />What proportion of the total observations chose to accept the coupon?
 <br  />7210 total coupons were accepted by combining all the attributes</li>
@@ -174,16 +172,12 @@ plt.text(bar.get_x() + bar.get_width()/2, yval, int(yval), va='bottom')
 <br  />plt.ylabel(&ldquo;Count&rdquo;)
 <br  />plt.title(&ldquo;Coupon Category Counts&rdquo;)
 <br  />plt.show()</p>
-<p><img src="./picture/Picture4.png" alt="image info" /></p>
-<p>Bar Plot is used to visualize Counts by Coupon Category</p>
-<p><img src="./picture/Picture5.png" alt="image info" /></p>
-<p>Observation: The coupons for ‘Coffee house’ are mostly accepted</p>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture4.png" alt="Picture4"><p>Bar Plot is used to visualize Counts by Coupon Category</p>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture5.png" alt="Picture5"><p>Observation: The coupons for ‘Coffee house’ are mostly accepted</p>
 <p>Use a histogram to visualize the temperature column.
-<br  /><img src="./picture/Picture6.png" alt="image info" /></p>
-<p>Observation : Coupons are accepted more when temperature is high</p>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture6.png" alt="Picture6"><p>Observation : Coupons are accepted more when temperature is high</p>
 <p>Customer acceptances by overall coupon categories
-<br  /><img src="./picture/Picture7.png" alt="image info" />
-<br  />Observation :  Less priced coupons are more accepted, Coffee House and less expensive restaurants.
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture7.png" alt="Picture7"><br  />Observation :  Less priced coupons are more accepted, Coffee House and less expensive restaurants.
 <br  />Compare the acceptance rate between those who went to a bar 3 or fewer times a month to those who went more.
 <br  />BarCatgroup = df_bar.groupby('Bar')
 <br  />BarCatgroup['Y'].sum()</p>
@@ -209,10 +203,8 @@ plt.text(bar.get_x() + bar.get_width()/2, yval, int(yval), va='bottom')
 <br  />Acceptance Rate['Several conditions'] : 45.223700120918984
 <br  />45.23</p>
 <p>Coupon counts by Expiry Details</p>
-<p><img src="./picture/Picture8.png" alt="image info" />
-<br  />Observation:  Coffee House restraint coupons get more expired quickly, hence, utilized more by the customers</p>
-<p><img src="./picture/Picture9.png" alt="image info" /></p>
-<h2>Conclusion:</h2>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture8.png" alt="Picture8"><br  />Observation:  Coffee House restraint coupons get more expired quickly, hence, utilized more by the customers</p>
+<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/6f3bf518087f17f00bf2af027a7b7893df194b14/Picture9.png" alt="Picture9"><h2>Conclusion:</h2>
 <p>Based on the observations,</p>
 <ul>
 <li>More coupons expire in a day</li>
