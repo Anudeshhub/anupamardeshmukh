@@ -79,8 +79,8 @@ The ultimate goal is to that accurately predicts the price of a used car given i
 ## 3.	Data Preparation
      Dataset Before Cleanup
 
-      <img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/blob/images/datastructure.png" alt="datastructure">
-
+      <img width="782" src="<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/images/datastructure.png">
+      
      	The dataset had many NaN values
     	id, model,VIN,odometer reading has high 
           cardinality, so these can be removed
