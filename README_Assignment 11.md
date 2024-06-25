@@ -30,7 +30,9 @@ The ultimate goal is to that accurately predicts the price of a used car given i
 ## 2.	Data Understanding 
      Raw data in the vehicle.csv file
      DataStructure
-
+     
+     <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/datastructure.png" alt="datastructure">
+ 
       Year                  : Generally, newer cars tend to
                               have higher prices.
       Manufacturer and Model: Some brands and models hold 
@@ -78,12 +80,12 @@ The ultimate goal is to that accurately predicts the price of a used car given i
 
 ## 3.	Data Preparation
      Dataset Before Cleanup
-
-      <img width="782" src="<img width="782" src="https://raw.githubusercontent.com/Anudeshhub/anupamardeshmukh/images/datastructure.png">
+        <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/rawdata.png" alt="rawdata">
+ 
       
-     	The dataset had many NaN values
+    	The dataset had many NaN values
     	id, model,VIN,odometer reading has high 
-          cardinality, so these can be removed
+        cardinality, so these can be removed
     	Identified and removed duplicates
     	Created standard format for the year
     	Cleaned up Values for Cylinder column
@@ -98,34 +100,32 @@ The ultimate goal is to that accurately predicts the price of a used car given i
                 'odometer', 'title_status', 'drive', 'size' 
     	Dropped the columns that has high cardinality 
 
-Only 4 columns are numeric. Id and Odometer has high cardinality and hence these are dropped and these do not give any valuable insights
- 
+   Only 4 columns are numeric. Id and Odometer has high cardinality and hence these are dropped and these do not give any valuable insights
+     <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Insights.png" alt="Insights.png">
+
 
 # Dataset after cleanup
- 
+<img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Datasetafter%20cleanup.png" alt="Dataset_aftercleanup.png">
 
 Data Exploration
 Created Various Visualization to analyze data 
 
 Not many outliers in the columns based on Condition and price of the Car
 
- 
+<img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/outliers.png" alt="outliers.png">
 
 Pick up and SUV's are priced high and looks like high demand for these cars. 'Distribution of Car Prices by Type.
 
- 
-
-
-
-
-
-
+ <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Distribution%20of%20Car%20Prices%20by%20type.png" alt="Distributionbytype.png">
 
 
                       
 4.	Calculated Mean Price by Manufacturer and Condition of the car and created a graph to show the correlation
- 
-Feature Engineering
+5.	
+   <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Mean%20Price%20by%20Manufacturer%2C%20condition%2C%20type%20and%20paint%20color.png
+" alt="MeanPrice by Manufacturer and Condition.png">
+
+ Feature Engineering
 	Separate features (X) and target (y)
 	Defined categorical and numerical features
 	Preprocessed pipeline for categorical features
@@ -134,10 +134,7 @@ Feature Engineering
 	Complete preprocessing for numeric features
 o	Created a ColumnTransformer to apply preprocessing steps to numeric features [manufacturer, condition]
 
- 
-
-
-
+ <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/ColumnTransformer.png" alt="ColumnTransformer.png">
 
 ## 4	Modeling
 	Initialized models: Linear Regression, Ridge, and Lasso
@@ -177,5 +174,15 @@ Brand Value (Manufacturer) : There is a demand for Brand value, as the sale for 
 Condition of the Car :  Good condition cars though expensive, are preferred by customers and hence, they must increase the inventory of these cars
 
 Prices of good cars will go up, as predicted, hence the dealer must have more good cars in their inventory	 
-Summary: 
+
+# Summary: 
+
+   <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Business%20Summary.JPG" alt="Business Summary">
+   <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Evaluation.JPG" alt="Evaluation">
+  <img width="782" src="https://github.com/Anudeshhub/anupamardeshmukh/blob/images/imported%20libraries.JPG" alt="Imported Libraries">
+
+
+   https://github.com/Anudeshhub/anupamardeshmukh/blob/images/Evaluation.JPG
+
+
 
